@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fin-Wise-X Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">JKS</div>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#dashboard">DASHBOARD</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#contact">CONTACT US</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="dashboard">
+        <div class="form-container">
+            <h2>PLEASE ENTER A STOCK SYMBOL</h2>
+            <form id="stock-form">
+                <input type="text" id="stock-symbol" placeholder="Company Stock Symbol" required>
+                <button type="submit" id="predict-btn">PREDICT THE FUTURE</button>
+            </form>
+        </div>
+
+        <div class="results-container">
+            <div id="prediction-output">
+                <h3>Prediction</h3>
+                <p id="prediction-result">---</p>
+            </div>
+            <div id="sentiment-output">
+                <h3>Sentiment</h3>
+                <p id="sentiment-result">---</p>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="stock-chart"></canvas>
+        </div>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
