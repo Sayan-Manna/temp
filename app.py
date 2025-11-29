@@ -55,16 +55,6 @@ def get_model_prediction(stock_symbol):
         history = {"dates": [], "prices": []}
         forecast = {"dates": [], "prices": []}
         
-        # last_30_days = model_data.tail(30)
-        # for date, price in last_30_days.items():
-        #     history["dates"].append(date.strftime("%Y-%m-%d"))
-        #     history["prices"].append(round(price, 2))
-            
-        # last_real_date = model_data.index[-1]
-        # for i in range(forecast_steps):
-        #     date = last_real_date + datetime.timedelta(days=i + 1)
-        #     forecast["dates"].append(date.strftime("%Y-%m-%d"))
-        #     forecast["prices"].append(round(forecast_result.iloc[i], 2))
 
         last_30_days = model_data.tail(30)
         # Ensure the index is datetime-like and format dates safely
@@ -85,6 +75,12 @@ def get_model_prediction(stock_symbol):
     except Exception as e:
         print(f"Error during model training/forecasting: {e}")
         return None, None, "Error: Could not process data."
+
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
 
 @app.route('/predict', methods=['POST'])
 def handle_prediction():
